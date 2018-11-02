@@ -8,6 +8,6 @@ public class ApiHandlers implements Action<Chain> {
 
     @Override
     public void execute(Chain chain) throws Exception {
-        chain.post("api/v1/upload", UploadHandler.class);
+        chain.put("api/v1/upload", UploadHandler.class);
     }
 }

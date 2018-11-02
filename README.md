@@ -3,6 +3,17 @@
 An example of uploading raw bytes with [Ratpack](https://ratpack.io).
 
 ## Running the Example
+1. Run the following Gradle command to start the example application:
+
+        ./gradlew clean build run
+        
+2. Run the following curl command to upload the `cat.jpeg`
+
+        curl -T ./cat.jpeg \
+        -H "Content-Type:image/jpeg" \
+        http://localhost:5050/api/v1/upload
+        
+    You will now see that the `cat.jpeg` file has been uploaded into the [build](/build) directory. If successul, [this link](/build/cat.jpeg) will open the newly uploaded cat picture. 
 
 ## Bugs and Feedback
 For bugs, questions, and discussions please use the [Github Issues](https://github.com/gregwhitaker/ratpack-rawbytes-example/issues).

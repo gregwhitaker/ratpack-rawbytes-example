@@ -7,10 +7,10 @@ import ratpack.exec.Promise;
 import ratpack.handling.Context;
 import ratpack.handling.Handler;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.channels.AsynchronousFileChannel;
-import java.nio.file.Paths;
+import java.nio.file.FileSystems;
+import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 
 public class UploadHandler implements Handler {
@@ -19,8 +19,9 @@ public class UploadHandler implements Handler {
     public void handle(Context ctx) throws Exception {
         ctx.getRequest().getBodyStream()
                 .subscribe(new Subscriber<ByteBuf>() {
+                    final String fileName = String.format("cat.jpeg", System.currentTimeMillis());
 
-                    private File file = File.createTempFile("example-", ".tmp");
+                    private Path path = FileSystems.getDefault().getPath(".", "build", fileName).toAbsolutePath();
                     private Subscription subscription;
                     private AsynchronousFileChannel out;
                     long written;
@@ -30,7 +31,7 @@ public class UploadHandler implements Handler {
                         subscription = s;
                         try {
                             this.out = AsynchronousFileChannel.open(
-                                    Paths.get(file.getAbsolutePath()),
+                                    path,
                                     StandardOpenOption.CREATE,
                                     StandardOpenOption.WRITE,
                                     StandardOpenOption.TRUNCATE_EXISTING);
