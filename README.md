@@ -1,4 +1,5 @@
 # ratpack-rawbytes-example
+[![Build Status](https://travis-ci.org/gregwhitaker/ratpack-rawbytes-example.svg?branch=master)](https://travis-ci.org/gregwhitaker/ratpack-rawbytes-example)
 
 An example of uploading raw bytes with [Ratpack](https://ratpack.io).
 
