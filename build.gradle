@@ -1,0 +1,16 @@
+plugins {
+    id 'io.ratpack.ratpack-java' version '1.5.4'
+}
+
+apply from: file("${rootProject.projectDir}/gradle/java.gradle")
+
+sourceCompatibility = 1.8
+mainClassName = 'ratpack.example.Main'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile ratpack.dependency('guice')
+}
