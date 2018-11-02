@@ -13,7 +13,7 @@ An example of uploading raw bytes with [Ratpack](https://ratpack.io).
         -H "Content-Type:image/jpeg" \
         http://localhost:5050/api/v1/upload
         
-    You will now see that the `cat.jpeg` file has been uploaded into the [build](/build) directory. If successul, [this link](/build/cat.jpeg) will open the newly uploaded cat picture. 
+    If successful, you will now see that `cat.jpeg` has been uploaded to the `build` directory. Open the file to validate that it has been uploaded correctly. 
 
 ## Bugs and Feedback
 For bugs, questions, and discussions please use the [Github Issues](https://github.com/gregwhitaker/ratpack-rawbytes-example/issues).
